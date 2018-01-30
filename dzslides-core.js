@@ -165,6 +165,10 @@ Dz.onmessage = function(aEvent) {
     this.postMsg(win, "CURSOR", this.idx + "." + this.step);
   if (argv[0] === "GET_NOTES" && argc === 1)
     this.postMsg(win, "NOTES", this.getNotes(this.idx));
+  if (argv[0] === "SET_SLIDE" && argc === 2) {
+    var slideIdx = Array.prototype.indexOf.call($$("section"), $(argv[1]));
+    this.setSlide(slideIdx + 1);
+  }
 }
 
 Dz.toggleContent = function() {
