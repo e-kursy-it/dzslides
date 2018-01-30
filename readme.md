@@ -51,6 +51,8 @@ Messages a DZSlides page can receive:
 * `GET_CURSOR` notify the source of the message of the current cursor;
 * `TOGGLE_CONTENT` toggle the current slide content;
 * `GET_NOTES cursor` notify the source of the message of the current notes content.
+* `GET_NOTES cursor` notify the source of the message of the current notes content.
+* `SET_SLIDE` jump to specific slide, with querySelector as param
 
 Messages a DZSlides page can send:
 
