@@ -323,39 +323,13 @@ Dz.postMsg = function(aWin, aMsg) { // [arg0, [arg1...]]
 
 function init() {
   Dz.init();
-  window.onkeydown = Dz.onkeydown.bind(Dz);
-  window.onresize = Dz.onresize.bind(Dz);
-  window.onhashchange = Dz.onhashchange.bind(Dz);
-  window.onmessage = Dz.onmessage.bind(Dz);
+  window.addEventListener("keydown", Dz.onkeydown.bind(Dz));
+  window.addEventListener("resize", Dz.onresize.bind(Dz));
+  window.addEventListener("hashchange", Dz.onhashchange.bind(Dz));
+  window.addEventListener("message", Dz.onmessage.bind(Dz));
 }
 
-window.onload = init;
-
-// Helpers
-if (!Function.prototype.bind) {
-  Function.prototype.bind = function (oThis) {
-
-    // closest thing possible to the ECMAScript 5 internal IsCallable
-    // function
-    if (typeof this !== "function")
-    throw new TypeError(
-      "Function.prototype.bind - what is trying to be fBound is not callable"
-    );
-
-    var aArgs = Array.prototype.slice.call(arguments, 1),
-        fToBind = this,
-        fNOP = function () {},
-        fBound = function () {
-          return fToBind.apply( this instanceof fNOP ? this : oThis || window,
-                 aArgs.concat(Array.prototype.slice.call(arguments)));
-        };
-
-    fNOP.prototype = this.prototype;
-    fBound.prototype = new fNOP();
-
-    return fBound;
-  };
-}
+window.addEventListener("load", init);
 
 var $ = (HTMLElement.prototype.$ = function(aQuery) {
   return this.querySelector(aQuery);
