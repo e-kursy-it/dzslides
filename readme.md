@@ -1,9 +1,23 @@
 ## Basic usage
 
-**DZSlides** is a **one-file** HTML template to build slides in HTML5 and CSS3.
+**DZSlides** is a HTML template to build slides in HTML5 and CSS3.
 
-`template.html` is the only file you need. Edit the file, add your content, change the style, and you're done. To see the slides in action, just load
+`template.html` contains markup for your presentation. Edit the file, add your content, change the style, and you're done. To see the slides in action, just load
 the file in your browser.
+
+## Css/JavaScript files extenalized
+
+This is a fork of original dzslides which aims at modularity rather than simplicity.
+JavaScript and CSS files are now outside `template.html`. These are:
+
+* `dzslides-core.css`
+* `dzslides-core.js`
+* `dzslides-default.css`
+
+Additionally event handlers have been moved into listener model instead of relying on
+attribute, which allows other code to react to those events.
+
+Removed also `bind` helper.
 
 ## Features
 
