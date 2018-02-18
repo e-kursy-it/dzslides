@@ -268,6 +268,7 @@ Dz.setSlide = function(aIdx) {
     if (video) {
       video.pause();
     }
+    old.dispatchEvent(new CustomEvent("dzslideshide"));
   }
   if (next) {
     next.setAttribute("aria-selected", "true");
@@ -279,6 +280,7 @@ Dz.setSlide = function(aIdx) {
         video.play();
       }
     }
+    next.dispatchEvent(new CustomEvent("dzslidesshow"));
   } else {
     // That should not happen
     this.idx = -1;
